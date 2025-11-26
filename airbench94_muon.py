@@ -339,12 +339,12 @@ def evaluate(model, loader, tta_level=0):
 
 def main(run, model):
 
-    batch_size = 2000
+    batch_size = 200
     bias_lr = 0.053
     head_lr = 0.67
     wd = 2e-6 * batch_size
 
-    test_loader = CifarLoader("cifar10", train=False, batch_size=2000)
+    test_loader = CifarLoader("cifar10", train=False, batch_size=200)
     train_loader = CifarLoader("cifar10", train=True, batch_size=batch_size, aug=dict(flip=True, translate=2))
     if run == "warmup":
         # The only purpose of the first run is to warmup the compiled model, so we can use dummy data
